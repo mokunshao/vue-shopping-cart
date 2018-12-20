@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+article {
+  max-width: 1280px;
+  margin: 30px auto;
+}
+
+.title {
+  margin: 30px 0;
+  text-align: center;
+  position: relative;
+}
+
+.title > span {
+  color: #605f5f;
+  font-size: 20px;
+  background: white;
+  z-index: 1;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+}
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.thead {
+  background: #605f5f;
+  color: white;
+  width: 100%;
+  display: table-header-group;
+}
+
+.thead > div {
+  display: table-cell;
+  font-size: 18px;
+  padding: 15px;
+}
+
+.thead > div:first-child {
+  width: 40%;
+  text-align: center;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tbody > li {
+  width: 100%;
+  display: table-row;
+}
+
+.tbody > li > div {
+  display: table-cell;
+}
+
+.tbody > li > div:first-child {
+  width: 40%;
+}
+
+.cart-tab {
+  padding: 15px;
+  border-bottom: 1px solid #e9e9e9;
+  position: relative;
+}
+
+.cart-tab > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cart-tab-1 {
+  border-left: 1px solid #e9e9e9;
+}
+
+.cart-tab-5 {
+  border-right: 1px solid #e9e9e9;
+}
+
+.item-image {
+  border: 1px solid #eee;
+  display: inline-flex;
+  margin-left: 30px;
+}
+
+.item-check {
+  position: absolute;
+  top: 30px;
+}
+
+.item-check svg {
+  height: 10px;
+  width: 10px;
+}
+
+ svg {
+  height: 15px;
+  width: 15px;
+}
+
+.item-name,
+.gift {
+  padding-left: 10px;
+}
+
+.gift {
+  color: #999;
+}
+
+.tfoot {
+  display: flow-root;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.tfoot-left {
+  float: left;
+}
+
+.tfoot-left > *,
+.tfoot-right > * {
+  float: left;
+}
+
+.tfoot-right > * {
+  padding: 10px 30px;
+}
+
+.tfoot-left > *:not(:first-child) {
+  padding: 10px 10px;
+}
+
+.tfoot-left > *:first-child {
+  padding: 10px 0px;
+}
+
+.tfoot-right {
+  float: right;
+}
+
+.tfoot-right,
+.tfoot-left {
+  display: flow-root;
+  margin: 15px;
+}
+
+.next-button {
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #d1434a;
+}
+
+.next-button:hover {
+  background-color: #b12b32;
+}
+
