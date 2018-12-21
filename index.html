@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <script src="./vue.js"></script>
+    <script src="./axios.js"></script>
   </head>
   <body>
     <svg
@@ -53,7 +54,7 @@
         </symbol>
       </defs>
     </svg>
-    <article>
+    <article id="app">
       <header class="title"><span>购物车</span></header>
       <main class="table">
         <header class="thead">
@@ -64,28 +65,41 @@
           <div>编辑</div>
         </header>
         <ul class="tbody">
-          <li>
+          <li v-for="(item,index) of productList" :key="index">
             <div class="cart-tab cart-tab-1">
-              <div class="item-check">
-                <a href="javascript:void 0" class="item-check-btn">
-                  <svg class="icon icon-ok">
-                    <use xlink:href="#icon-ok"></use>
-                  </svg>
-                </a>
+              <div class="check-button">
+                <svg><use xlink:href="#icon-ok"></use></svg>
               </div>
               <div class="item-image">
-                <img src="./images/Pepsi.jpg" width="50" height="50" />
+                <img :src="item.img" :alt="item.name" width="50" height="50" />
               </div>
               <div class="item-and-gift">
-                <div class="item-name">百事可乐</div>
-                <div class="gift">
-                  <small>赠品：<span class="gift-name">吸管</span></small>
+                <div class="item-name">{{ item.name }}</div>
+                <div class="gift" v-if="item.gifts">
+                  <small
+                    >赠品：<span
+                      class="gift-name"
+                      v-for="(gift,index) of item.gifts"
+                      :key="index"
+                      >{{ gift.giftName
+                      }}<span v-if="index<item.gifts.length-1">,</span>
+                    </span></small
+                  >
                 </div>
               </div>
             </div>
-            <div class="cart-tab cart-tab-2">￥12</div>
-            <div class="cart-tab cart-tab-3">1</div>
-            <div class="cart-tab cart-tab-4">￥12</div>
+            <div class="cart-tab cart-tab-2">{{ item.price }}</div>
+            <div class="cart-tab cart-tab-3">
+              <div class="amount-control">
+                <button @click="item.amount>1?item.amount--:1">-</button>
+                <input type="text" :value="item.amount" />
+                <button @click="item.amount++">+</button>
+              </div>
+              <div class="in-stock"><small>有货</small></div>
+            </div>
+            <div class="cart-tab cart-tab-4">
+              {{ item.price * item.amount }}
+            </div>
             <div class="cart-tab cart-tab-5">
               <svg class="icon icon-del">
                 <use xlink:href="#icon-del"></use>
@@ -96,7 +110,9 @@
       </main>
       <section class="tfoot">
         <div class="tfoot-left">
-          <div class="select-check">〇</div>
+          <div class="check-button">
+            <svg><use xlink:href="#icon-ok"></use></svg>
+          </div>
           <div class="select-all">全选</div>
           <div class="unselect-all">取消全选</div>
         </div>
