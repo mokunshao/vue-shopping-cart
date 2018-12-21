@@ -6,26 +6,30 @@
       {
         "name": "百事可乐",
         "price": 2,
-        "count": 1,
-        "amount": 2,
-        "imgPic": "../images/Pepsi.jpg",
+        "amount": 1,
+        "sum": 2,
+        "img": "./images/Pepsi.jpg",
         "gifts": [
           {
             "giftId": "10001",
-            "giftName": "打火机"
+            "giftName": "吸管"
+          },
+          {
+            "giftId": "10002",
+            "giftName": "毛巾"
           }
         ]
       },
       {
         "name": "宝矿力水特",
         "price": 5,
-        "count": 1,
-        "amount": 5,
-        "imgPic": "../images/Pocari-Sweat.jpg",
+        "amount": 2,
+        "sum": 10,
+        "img": "./images/Pocari-Sweat.jpg",
         "gifts": [
           {
-            "giftId": "10001",
-            "giftName": "打火机"
+            "giftId": "10002",
+            "giftName": "毛巾"
           }
         ]
       }
