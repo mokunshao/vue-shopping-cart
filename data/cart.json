@@ -7,7 +7,6 @@
         "name": "百事可乐",
         "price": 2,
         "amount": 1,
-        "sum": 2,
         "img": "./images/Pepsi.jpg",
         "gifts": [
           {
@@ -24,7 +23,6 @@
         "name": "宝矿力水特",
         "price": 5,
         "amount": 2,
-        "sum": 10,
         "img": "./images/Pocari-Sweat.jpg",
         "gifts": [
           {
