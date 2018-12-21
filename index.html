@@ -67,7 +67,11 @@
         <ul class="tbody">
           <li v-for="(item,index) of productList" :key="index">
             <div class="cart-tab cart-tab-1">
-              <div class="check-button">
+              <div
+                class="check-button"
+                :class="{checked:item.isChecked}"
+                @click="selectProduct(item)"
+              >
                 <svg><use xlink:href="#icon-ok"></use></svg>
               </div>
               <div class="item-image">
@@ -88,17 +92,17 @@
                 </div>
               </div>
             </div>
-            <div class="cart-tab cart-tab-2">{{ item.price }}</div>
+            <div class="cart-tab cart-tab-2">{{ item.price | currency }}</div>
             <div class="cart-tab cart-tab-3">
               <div class="amount-control">
-                <button @click="item.amount>1?item.amount--:1">-</button>
-                <input type="text" :value="item.amount" />
-                <button @click="item.amount++">+</button>
+                <button @click="minus(item)">-</button>
+                <input type="text" v-model="item.amount" />
+                <button @click="add(item)">+</button>
               </div>
               <div class="in-stock"><small>有货</small></div>
             </div>
             <div class="cart-tab cart-tab-4">
-              {{ item.price * item.amount }}
+              {{ item.price * item.amount | currency }}
             </div>
             <div class="cart-tab cart-tab-5">
               <svg class="icon icon-del">
@@ -110,14 +114,17 @@
       </main>
       <section class="tfoot">
         <div class="tfoot-left">
-          <div class="check-button">
+          <div
+            class="check-button"
+            :class="{checked:isCheckAll}"
+            @click="CheckAll"
+          >
             <svg><use xlink:href="#icon-ok"></use></svg>
           </div>
-          <div class="select-all">全选</div>
-          <div class="unselect-all">取消全选</div>
+          <div class="select-all" @click="CheckAll">全选</div>
         </div>
         <div class="tfoot-right">
-          <div class="total-sum">总价：0</div>
+          <div class="total-price">总价：{{ totalPrice }}</div>
           <a class="next-button" href="#">去结算</a>
         </div>
       </section>
