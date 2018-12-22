@@ -298,3 +298,9 @@ article {
   text-align: center;
   margin: 50px;
 }
+
+.warning{
+  color: red;
+  float: right;
+  padding-right:15px; 
+}
