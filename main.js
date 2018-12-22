@@ -79,7 +79,7 @@ new Vue({
     nextStep() {
       if (this.totalPrice !== 0) {
         window.location.href =
-          "https://mokunshao.github.io/vue-shopping-cart/address.html";
+          "./address.html";
       } else if (this.totalPrice === 0) {
         this.showWarning = true;
       }
