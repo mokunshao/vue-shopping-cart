@@ -130,15 +130,17 @@
         </div>
       </section>
       <div class="warning" v-if="showWarning">请选择商品</div>
-      <div class="mask" v-if="showModal" @click.self="cancelDelete">
+      <div class="mask" :class="{showModal:showModal}" @click.self="cancelDelete">
         <div class="modal">
-          <div class="close-modal" @click="cancelDelete"></div>
-          <div class="confirm-message">你确认删除该商品吗?</div>
-          <div class="confirm-buttons">
-            <button class="confirm-button" @click="deleteItem">Yes</button>
-            <button class="confirm-button red-button" @click="cancelDelete">
-              No
-            </button>
+          <div class="modal-inner">
+            <div class="close-modal" @click="cancelDelete"></div>
+            <div class="confirm-message">你确认删除该商品吗?</div>
+            <div class="confirm-buttons">
+              <button class="confirm-button" @click="deleteItem">Yes</button>
+              <button class="confirm-button red-button" @click="cancelDelete">
+                No
+              </button>
+            </div>
           </div>
         </div>
       </div>

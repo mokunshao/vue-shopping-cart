@@ -14,7 +14,7 @@ li {
 
 article {
   max-width: 1280px;
-  margin: 30px auto;
+  margin: 20px auto;
 }
 
 .title {
@@ -214,6 +214,15 @@ article {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.mask.showModal {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s;
 }
 
 .modal {
@@ -221,18 +230,21 @@ article {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal-inner {
+  transform: translateY(20%);
   padding: 40px 30px;
   background: white;
+  opacity: 0;
+  transition: all 0.5s;
 }
 
-/* .modal-inner{
-  transform: translateY(20%);
-}
-
-.modal-inner.slideUp{
+.mask.showModal .modal-inner {
   transform: translateY(0);
-  transition: transform 0.5s;
-} */
+  opacity: 1;
+  transition: all 0.5s;
+}
 
 .confirm-message {
   text-align: center;
@@ -307,8 +319,8 @@ article {
   margin: 50px;
 }
 
-.warning{
+.warning {
   color: red;
   float: right;
-  padding-right:15px; 
+  padding-right: 15px;
 }
