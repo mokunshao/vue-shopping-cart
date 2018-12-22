@@ -5,7 +5,8 @@ new Vue({
     isCheckAll: false,
     totalPrice: 0,
     showDialog: false,
-    currentProduct: null
+    currentProduct: null,
+    showWarning: false
   },
   filters: {
     currency(value) {
@@ -49,6 +50,9 @@ new Vue({
           this.totalPrice += item.price * item.amount;
         }
       });
+      if (this.totalPrice !== 0) {
+        this.showWarning = false;
+      }
     },
     minus(item) {
       item.amount > 1 ? item.amount-- : 1;
@@ -67,9 +71,18 @@ new Vue({
       this.showDialog = false;
     },
     deleteItem() {
-      let key = this.productList.indexOf(this.currentProduct);
-      this.$delete(this.productList, key);
+      let index = this.productList.indexOf(this.currentProduct);
+      this.$delete(this.productList, index);
+      // 另外一种写法 this.productList.splice(index,1);
       this.showDialog = false;
+    },
+    nextStep() {
+      if (this.totalPrice !== 0) {
+        window.location.href =
+          "https://mokunshao.github.io/vue-shopping-cart/address.html";
+      } else if (this.totalPrice === 0) {
+        this.showWarning = true;
+      }
     }
   }
 });
