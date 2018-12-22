@@ -4,9 +4,9 @@ new Vue({
     productList: [],
     isCheckAll: false,
     totalPrice: 0,
-    showDialog: false,
+    showModal: false,
     currentProduct: null,
-    showWarning: false
+    showWarning: false,
   },
   filters: {
     currency(value) {
@@ -64,17 +64,17 @@ new Vue({
     },
     tryToDelete(item) {
       this.currentProduct = item;
-      this.showDialog = true;
+      this.showModal = true;
     },
     cancelDelete() {
       this.currentProduct = null;
-      this.showDialog = false;
+      this.showModal = false;
     },
     deleteItem() {
       let index = this.productList.indexOf(this.currentProduct);
       this.$delete(this.productList, index);
       // 另外一种写法 this.productList.splice(index,1);
-      this.showDialog = false;
+      this.showModal = false;
     },
     nextStep() {
       if (this.totalPrice !== 0) {
