@@ -104,7 +104,7 @@
             <div class="cart-tab cart-tab-4">
               {{ item.price * item.amount | currency }}
             </div>
-            <div class="cart-tab cart-tab-5">
+            <div class="cart-tab cart-tab-5" @click="tryToDelete(item)">
               <svg class="icon icon-del">
                 <use xlink:href="#icon-del"></use>
               </svg>
@@ -112,6 +112,7 @@
           </li>
         </ul>
       </main>
+      <div class="empty-cart" v-if="productList.length===0">购物车没有商品</div>
       <section class="tfoot">
         <div class="tfoot-left">
           <div
@@ -124,10 +125,22 @@
           <div class="select-all" @click="CheckAll">全选</div>
         </div>
         <div class="tfoot-right">
-          <div class="total-price">总价：{{ totalPrice }}</div>
+          <div class="total-price">总价：{{ totalPrice | currency }}</div>
           <a class="next-button" href="#">去结算</a>
         </div>
       </section>
+      <div class="mask" v-if="showDialog" @click.self="cancelDelete">
+        <div class="dialog">
+          <div class="close-dialog" @click="cancelDelete"></div>
+          <div class="confirm-message">你确认删除该商品吗?</div>
+          <div class="confirm-buttons">
+            <button class="confirm-button" @click="deleteItem">Yes</button>
+            <button class="confirm-button red-button" @click="cancelDelete">
+              No
+            </button>
+          </div>
+        </div>
+      </div>
     </article>
     <script src="main.js"></script>
   </body>
