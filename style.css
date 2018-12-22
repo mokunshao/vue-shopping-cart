@@ -216,22 +216,30 @@ article {
   background: rgba(0, 0, 0, 0.5);
 }
 
-.dialog {
+.modal {
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
   padding: 40px 30px;
   background: white;
 }
+
+/* .modal-inner{
+  transform: translateY(20%);
+}
+
+.modal-inner.slideUp{
+  transform: translateY(0);
+  transition: transform 0.5s;
+} */
 
 .confirm-message {
   text-align: center;
   padding: 30px;
 }
 
-.close-dialog {
+.close-modal {
   position: absolute;
   top: 7px;
   right: 7px;
@@ -257,7 +265,7 @@ article {
   color: white;
 }
 
-.close-dialog {
+.close-modal {
   position: absolute;
   top: 7px;
   right: 7px;
@@ -266,8 +274,8 @@ article {
   cursor: pointer;
 }
 
-.close-dialog:before,
-.close-dialog:after {
+.close-modal:before,
+.close-modal:after {
   position: absolute;
   top: 10px;
   right: 0px;
@@ -278,19 +286,19 @@ article {
   transition: transform 0.5s;
 }
 
-.close-dialog:before {
+.close-modal:before {
   transform: rotate(-45deg);
 }
 
-.close-dialog:after {
+.close-modal:after {
   transform: rotate(45deg);
 }
 
-.close-dialog:hover:before {
+.close-modal:hover:before {
   transform: rotate(-135deg);
 }
 
-.close-dialog:hover:after {
+.close-modal:hover:after {
   transform: rotate(-45deg);
 }
 
