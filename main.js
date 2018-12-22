@@ -3,7 +3,9 @@ new Vue({
   data: {
     productList: [],
     isCheckAll: false,
-    totalPrice: 0
+    totalPrice: 0,
+    showDialog: false,
+    currentProduct: null
   },
   filters: {
     currency(value) {
@@ -55,6 +57,19 @@ new Vue({
     add(item) {
       item.amount++;
       this.calcTotalPrice();
+    },
+    tryToDelete(item) {
+      this.currentProduct = item;
+      this.showDialog = true;
+    },
+    cancelDelete() {
+      this.currentProduct = null;
+      this.showDialog = false;
+    },
+    deleteItem() {
+      let key = this.productList.indexOf(this.currentProduct);
+      this.$delete(this.productList, key);
+      this.showDialog = false;
     }
   }
 });
