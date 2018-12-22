@@ -126,9 +126,10 @@
         </div>
         <div class="tfoot-right">
           <div class="total-price">总价：{{ totalPrice | currency }}</div>
-          <a class="next-button" href="#">去结算</a>
+          <a class="next-button" href="#" @click="nextStep">去结算</a>
         </div>
       </section>
+      <div class="warning" v-if="showWarning">请选择商品</div>
       <div class="mask" v-if="showDialog" @click.self="cancelDelete">
         <div class="dialog">
           <div class="close-dialog" @click="cancelDelete"></div>
