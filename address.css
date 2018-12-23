@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+article {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.procedure {
+  display: flex;
+  flex-direction: row;
+}
+
+.procedure > div {
+  width: 25%;
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+  padding: 25px;
+  position: relative;
+}
+
+.procedure > div.currentStep {
+  border-color: #ee7a23;
+  color: #ee7a23;
+}
+
+.procedure > div.currentStep::after {
+  background: #ee7a23;
+}
+
+.procedure > div::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: #ccc;
+  border-radius: 50%;
+  margin-left: -7px;
+  /* 或者使用 transform: translateX(-50%); */
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #605f5f;
+  padding: 50px;
+  position: relative;
+}
+
+.title > span {
+  background: white;
+  z-index: 1;
+  padding: 15px;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #ccc;
+  left: 0;
+  top: 50%;
+  z-index: -1;
+}
+
+.addressesList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addressesList > li {
+  border: 2px solid #e9e9e9;
+  width: 23.5%;
+  height: 162px;
+  padding: 20px;
+  position: relative;
+}
+
+.addressesList > li:hover {
+  border-color: #ee7a23;
+}
+
+.icon-del,
+.icon-edit {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 20px;
+}
+
+.icon-del {
+  bottom: 20px;
+}
+
+.icon-edit {
+  top: 20px;
+}
+
+.more {
+  text-align: center;
+  padding: 20px;
+}
+
+.deliveryMethod {
+  display: flex;
+  justify-content: center;
+}
+
+.deliveryMethod > div {
+  border: 2px solid #e9e9e9;
+  padding: 10px;
+  margin: 5px;
+}
+
+.deliveryMethod > div:hover {
+  border-color: #ee7a23;
+}
