@@ -1,44 +1,39 @@
 {
   "status":0,
-  "message":"",
+  "message": "success",
   "result":[
     {
-      "addressId":"100001",
-      "userName":"Ken",
-      "streetName":"广州市某酒店1号房",
-      "postCode":"100001",
+      "id":"100001",
+      "name":"Ken",
+      "location":"广州白云山",
       "tel":"12345678901",
       "isDefault":true
     },
     {
-      "addressId":"100002",
-      "userName":"Ken",
-      "streetName":"广州市某酒店2号房",
-      "postCode":"100001",
+      "id":"100002",
+      "name":"Ken",
+      "location":"肇庆七星岩",
       "tel":"12345678901",
       "isDefault":false
     },
     {
-      "addressId":"100003",
-      "userName":"Ken",
-      "streetName":"广州市某酒店3号房",
-      "postCode":"100001",
+      "id":"100003",
+      "name":"Ken",
+      "location":"香港尖沙咀",
       "tel":"12345678901",
       "isDefault":false
     },
     {
-      "addressId":"100004",
-      "userName":"Ken",
-      "streetName":"广州市某酒店4号房",
-      "postCode":"100001",
+      "id":"100004",
+      "name":"Ken",
+      "location":"澳门妈祖阁",
       "tel":"12345678901",
       "isDefault":false
     },
     {
-      "addressId":"100005",
-      "userName":"Ken",
-      "streetName":"广州市某酒店5号房",
-      "postCode":"100001",
+      "id":"100005",
+      "name":"Ken",
+      "location":"福建沙县小吃",
       "tel":"12345678901",
       "isDefault":false
     }
