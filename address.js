@@ -37,6 +37,10 @@ new Vue({
           address.isDefault = false;
         }
       });
+    },
+    deleteAddress(address) {
+      let index = this.addressesList.indexOf(address);
+      this.addressesList.splice(index, 1);
     }
   }
 });
