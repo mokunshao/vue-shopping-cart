@@ -111,9 +111,15 @@ article {
   top: 20px;
 }
 
-.more {
+.loadMore {
   text-align: center;
-  padding: 20px;
+  margin: 20px;
+}
+
+.more {
+  color: #ee7a23;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .deliveryMethod {
@@ -125,8 +131,73 @@ article {
   border: 2px solid #e9e9e9;
   padding: 10px;
   margin: 5px;
+  width: 276px;
+  text-align: center;
+  font-size: 18px;
+  color: #999;
+}
+
+.deliveryMethod > div > div:last-child {
+  font-weight: bold;
 }
 
 .deliveryMethod > div:hover {
   border-color: #ee7a23;
+}
+
+.nextStep {
+  margin: 50px;
+  text-align: center;
+}
+
+.nextButton {
+  background-color: #d1434a;
+  color: #fff;
+  padding: 15px 25px;
+  display: inline-block;
+}
+
+.nextButton:hover {
+  background-color: #b12b32;
+}
+
+.moreButton {
+  display: inline-block;
+  position: relative;
+  width: 14px;
+  height: 4px;
+}
+
+.moreButton::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 1px;
+  background: #ee7a23;
+  transform: rotate(40deg);
+  position: absolute;
+  left: 0;
+  transition: all 0.3s;
+}
+
+.moreButton::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 1px;
+  background: #ee7a23;
+  transform: rotate(-40deg);
+  position: absolute;
+  right: 0;
+  transition: all 0.3s;
+}
+
+.more:hover .moreButton::before {
+  transform: rotate(-40deg);
+  transition: all 0.3s;
+}
+
+.more:hover .moreButton::after {
+  transform: rotate(40deg);
+  transition: all 0.3s;
 }
