@@ -2,7 +2,9 @@ new Vue({
   el: "article",
   data: {
     addressesList: [],
-    limitedAddressesNumber: 3
+    limitedAddressesNumber: 3,
+    currentIndex: 0,
+    shippingMethod: 1
   },
   computed: {
     limitedAddressesList() {
@@ -26,6 +28,15 @@ new Vue({
       } else if ((this.limitedAddressesNumber = this.addressesList.length)) {
         this.limitedAddressesNumber = 3;
       }
+    },
+    setDefault(addressId) {
+      this.addressesList.forEach(address => {
+        if (address.id === addressId) {
+          address.isDefault = true;
+        } else {
+          address.isDefault = false;
+        }
+      });
     }
   }
 });
