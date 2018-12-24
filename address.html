@@ -50,12 +50,22 @@
       <section>
         <div class="title"><span>配送地址</span></div>
         <ul class="addressesList">
-          <li v-for="address of limitedAddressesList">
+          <li
+            v-for="(address,index) of limitedAddressesList"
+            :class="{checked:index===currentIndex}"
+            @click="currentIndex=index"
+          >
             <p>{{ address.name }}</p>
             <p>{{ address.location }}</p>
             <p>{{ address.tel }}</p>
-            <p v-if="!address.isDefault">设为默认</p>
-            <p v-if="address.isDefault">默认地址</p>
+            <p
+              class="setDefault"
+              v-if="!address.isDefault"
+              @click="setDefault(address.id)"
+            >
+              设为默认
+            </p>
+            <p class="defaultAddress" v-if="address.isDefault">默认地址</p>
             <svg class="icon icon-edit">
               <use xlink:href="#icon-edit"></use>
             </svg>
@@ -67,22 +77,19 @@
           </li>
         </ul>
         <div class="loadMore">
-          <div
-            class="more"
-            @click="changeAddressesNumber"
-          >
+          <div class="more" @click="changeAddressesNumber">
             more<i class="moreButton"></i>
           </div>
         </div>
       </section>
       <section>
         <div class="title"><span>配送方式</span></div>
-        <div class="deliveryMethod">
-          <div>
+        <div class="shippingMethod">
+          <div :class="{checked:shippingMethod===1}" @click="shippingMethod=1">
             <p>标准配送</p>
             <p>Free</p>
           </div>
-          <div>
+          <div :class="{checked:shippingMethod===2}" @click="shippingMethod=2">
             <p>高级配送</p>
             <p>180元</p>
           </div>
