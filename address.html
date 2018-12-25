@@ -52,6 +52,7 @@
         <ul class="addressesList">
           <li
             v-for="(address,index) of limitedAddressesList"
+            :key="index"
             :class="{checked:index===currentIndex}"
             @click="currentIndex=index"
           >
