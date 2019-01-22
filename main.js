@@ -6,7 +6,7 @@ new Vue({
     totalPrice: 0,
     showModal: false,
     currentProduct: null,
-    showWarning: false,
+    showWarning: false
   },
   filters: {
     currency(value) {
@@ -20,8 +20,12 @@ new Vue({
   },
   methods: {
     getData() {
-      axios.get("./data/cart.json").then(response => {
-        this.productList = response.data.result.list;
+      fetch("./data/cart.json").then(res => {
+        if (res.ok) {
+          res.json().then(data => {
+            this.productList = data.result.list;
+          });
+        }
       });
     },
     selectProduct(item) {
@@ -78,8 +82,7 @@ new Vue({
     },
     nextStep() {
       if (this.totalPrice !== 0) {
-        window.location.href =
-          "./address.html";
+        window.location.href = "./address.html";
       } else if (this.totalPrice === 0) {
         this.showWarning = true;
       }

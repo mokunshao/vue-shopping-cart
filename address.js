@@ -18,8 +18,12 @@ new Vue({
   },
   methods: {
     getAddresses() {
-      axios.get("./data/addresses.json").then(response => {
-        this.addressesList = response.data.result;
+      fetch("./data/addresses.json").then(res => {
+        if (res.ok) {
+          res.json().then(data => {
+            this.addressesList = data.result;
+          });
+        }
       });
     },
     changeAddressesNumber() {
